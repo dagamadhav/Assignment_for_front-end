@@ -1,13 +1,81 @@
-.lead-details {
-    border: 1px solid #ccc;
-    padding: 20px;
+.right-sidebar {
+  background-color: #1a1a1a;
+  color: white;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  border-radius: 8px;
+  width: 350px;
+}
+
+.section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 20px;
-  }
-  
-  .lead-info {
-    margin-bottom: 10px;
-  }
-  
-  .activities {
-    margin-top: 20px;
-  }
+    font-size: 18px;
+    margin: 0;
+}
+
+.lead-details p, .campaign-name p, .step-details p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.lead-details p strong {
+  display: inline-block;
+  width: 120px;
+}
+
+.activities {
+  margin-top: 20px;
+}
+
+.campaign-name p {
+  margin: 2px 0;
+  font-size: 14px;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #2c2c2c;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  background-size: cover;
+  margin-right: 10px;
+}
+
+
+
+.step-details {
+  flex: 1;
+}
+
+.step-date {
+  font-size: 12px;
+  color: #a0a0a0;
+}
+
+a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.email-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #2c2c2c;
+}

@@ -1,46 +1,63 @@
-.app {
-  display: flex;
-  height: 100vh;
-  background-color: #111; 
-}
-
-.sidebar {
-  width: 300px; 
-  background-color: #222; 
-  padding: 20px;
-  overflow-y: auto;
-}
-
-.main-content {
-  flex: 1; 
-  padding: 20px;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
-
-.inbox-list {
-  list-style: none;
+/* Grid Container */
+.parent {
+  font-family: Arial, sans-serif;
+  display: grid;
+  grid-template-columns: 0.4fr repeat(4, 1fr);
+  grid-template-rows: 0.5fr repeat(4, 1fr);
+  grid-column-gap: -20px;
+  grid-row-gap: -10px;
+  height: 100vh; /* Full viewport height */
+  width: 100vw; /* Full viewport width */
+  margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-.inbox-list li {
-  margin-bottom: 10px;
-  cursor: pointer;
+/* Grid Areas */
+.div1 { 
+  grid-area: 1 / 1 / 2 / 6; 
+  background-color: #f8f9fa;
 }
 
-.inbox-list li.active {
-  background-color: #333;
+.div2 { 
+  grid-area: 2 / 1 / 6 / 2; 
+  background-color: #101113;
+  color: white;
+  border: 5px solid #343A40;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.div3 { 
+  grid-area: 2 / 5 / 6 / 6; 
+  background-color: #101113;
+  color: white;
+  border:5px solid #343A40;
+}
+
+.div4 { 
+  grid-area: 2 / 2 / 6 / 5; 
+  background-color: #ffffff;
+}
+
+/* Reset padding and margin for all components */
+.NavBar, .SideBar, .RightSideBar, .HeroSection {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Example text alignment */
+.NavBar {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.HeroSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  text-align: center;
 }

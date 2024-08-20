@@ -7,11 +7,19 @@ import RightSideBar from './component/RightSideBar';
 function App() {
   
   return (
-    <div className="App">
-      <NavBar />
-      <SideBar/>
-      <HeroSection />
-      <RightSideBar />
+    <div className="parent">
+      <div className="div1">
+        <NavBar />
+      </div>
+      <div className="div2">
+        <SideBar />
+      </div>
+      <div className="div3">
+        <RightSideBar />
+      </div>
+      <div className="div4">
+        <HeroSection />
+      </div>
     </div>
   );
 }

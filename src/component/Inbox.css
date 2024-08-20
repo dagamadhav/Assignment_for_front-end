@@ -1,0 +1,133 @@
+.inbox {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    width: 300px;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .header h1 {
+    font-size: 18px;
+    margin: 0;
+  }
+  
+  .search-bar {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: #2c2c2c;
+    color: white;
+  }
+  
+  .filter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .filter span {
+    font-size: 14px;
+  }
+  
+  .filter select {
+    background-color: #2c2c2c;
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  
+  .email-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .email-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: #2c2c2c;
+  }
+  
+  .email-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .email-details {
+    flex: 1;
+  }
+  
+  .email-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
+  
+  .email-address {
+    font-weight: bold;
+  }
+  
+  .email-date {
+    font-size: 12px;
+    color: #a0a0a0;
+  }
+  
+  .email-message {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  
+  .email-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .status {
+    padding: 3px 6px;
+    border-radius: 12px;
+    font-size: 12px;
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  .status.interested {
+    background-color: green;
+  }
+  
+  .status.closed {
+    background-color: purple;
+  }
+  
+  .status.meeting-booked {
+    background-color: orange;
+  }
+  
+  .status.meeting-completed {
+    background-color: yellow;
+    color: black;
+  }
+  
+  .campaign {
+    background-color: #3a3a3a;
+    border-radius: 12px;
+    padding: 3px 6px;
+    font-size: 12px;
+  }
+  
