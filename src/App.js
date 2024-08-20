@@ -1,6 +1,7 @@
 import './App.css';
 import NavBar from '../src/component/NavBar';
 import SideBar from './component/SideBar';
+import HeroSection from './component/HeroSection';
 import RightSideBar from './component/RightSideBar';
 
 function App() {
@@ -9,8 +10,8 @@ function App() {
     <div className="App">
       <NavBar />
       <SideBar/>
-        
-      
+      <HeroSection />
+      <RightSideBar />
     </div>
   );
 }
