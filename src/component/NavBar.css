@@ -1,0 +1,37 @@
+.navbar {
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px; 
+    background-color: #111; 
+  }
+  
+  .title {
+    margin-left: 20px;
+    color: white;
+    font-size: 20px; 
+    margin-right: 20px;
+  }
+  
+  .logos {
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+  }
+  
+  .theme-change, .user {
+    width: 30px;
+    height: 30px;
+    background-color: #333;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .theme-change p, .user p {
+    color: white;
+    font-size: 14px;
+  }
