@@ -3,67 +3,47 @@
   color: white;
   padding: 20px;
   font-family: Arial, sans-serif;
-  border-radius: 8px;
   width: 350px;
+  border-radius: 8px;
+}
+
+.section {
+  margin-bottom: 20px;
+  border-radius: 8px;
+  background-color: #2c2c2c;
+  padding: 15px;
 }
 
 .section-title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    font-size: 18px;
-    margin: 0;
-}
-
-.lead-details p, .campaign-name p, .step-details p {
-  margin: 5px 0;
-  font-size: 14px;
-}
-
-.lead-details p strong {
-  display: inline-block;
-  width: 120px;
-}
-
-.activities {
-  margin-top: 20px;
-}
-
-.campaign-name p {
-  margin: 2px 0;
-  font-size: 14px;
-}
-
-.step {
-  display: flex;
-  align-items: center;
+  margin-bottom: 15px;
+  font-size: 18px;
+  background-color: #343a40;
   padding: 10px;
-  margin-bottom: 10px;
   border-radius: 5px;
-  background-color: #2c2c2c;
+  text-align: center;
 }
 
-.icon {
-  width: 24px;
-  height: 24px;
-  background-size: cover;
-  margin-right: 10px;
+.lead-info, .campaign-details, .activity-steps {
+  margin-left: 10px;
 }
 
-
-
-.step-details {
-  flex: 1;
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
 }
 
-.step-date {
-  font-size: 12px;
+.info-label {
+  font-size: 14px;
   color: #a0a0a0;
 }
 
+.info-value {
+  font-size: 14px;
+}
+
 a {
-  color: #ffffff;
+  color: #0abde3;
   text-decoration: none;
 }
 
@@ -71,11 +51,52 @@ a:hover {
   text-decoration: underline;
 }
 
-.email-item {
+.campaign-name {
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.campaign-steps {
+  font-size: 14px;
+  color: #a0a0a0;
+  margin-bottom: 15px;
+}
+
+.step {
+  margin-top: 25px;
   display: flex;
   align-items: center;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  background-color: #2c2c2c;
+  margin-bottom: 25px;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  background-size: cover;
+  margin-right: 20px;
+}
+
+.email-icon {
+  background-image: url('../component/image.jpg'); /* Replace with the actual path */
+}
+
+.email-open-icon {
+  background-image: url('../component/image.jpg'); /* Replace with the actual path */
+}
+
+.step-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.step-title {
+  font-size: 16px;
+}
+
+.step-date {
+  margin-top: 5px;
+  font-size: 12px;
+  color: #a0a0a0;
 }

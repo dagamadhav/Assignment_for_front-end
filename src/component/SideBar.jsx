@@ -10,7 +10,7 @@ import EqualizerIcon from '@mui/icons-material/Equalizer';
 
 function SideBar() {
   return (
-    <div className='sidebar'>
+    <div className='Sidebar'>
       <div className='logo'>
         <img src='..src/component/image.jpg' height={50} width={300}/>
       </div>

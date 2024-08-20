@@ -1,7 +1,7 @@
 import React from 'react';
 import './HeroSection.css';
 import Inbox from './Inbox';
-
+import HeaderSection from './HeaderSection';
 
 function HeroSection() {
   return (
@@ -10,7 +10,7 @@ function HeroSection() {
         <Inbox />
       </div>
       <div className="header">
-        <p>hi</p>
+        <HeaderSection />
       </div>
       <div className="main-content">
       <p>hi</p>
