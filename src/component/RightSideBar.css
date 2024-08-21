@@ -5,6 +5,8 @@
   font-family: Arial, sans-serif;
   width: 350px;
   border-radius: 8px;
+  align-items: center;
+  justify-content: center;
 }
 
 .section {

@@ -17,8 +17,12 @@ function HeaderSection() {
                         <option>Interested</option>
                         <option>Closed</option>
                     </select>
+                    <select className="status-select">
+                        <option>More</option>
+                        <option>Set Reminder</option>
+                        <option>Ask to review</option>
+                    </select>
                 </div>
-                <button className="move-button">Move <span>&#9662;</span></button>
                 <button className="more-options">&#8230;</button>
             </div>
         </div>

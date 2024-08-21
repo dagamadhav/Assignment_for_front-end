@@ -1,14 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Inbox.css';
 
 function Inbox() {
+  const [sortOrder, setSortOrder] = useState('Newest');
+
   const emails = [
-    { email: "Beata@gmail.com", date: "Mar 7", message: "I've tried a lot and .", status: "Interested", campaign: "Campaign Name", indicatorColor: "blue" },
-    { email: "Sanya@gmail.com", date: "Mar 7", message: "I've tried a lot and .", status: "Closed", campaign: "Campaign Name", indicatorColor: "purple" },
-    { email: "william@gmail.com", date: "Mar 7", message: "Payment not going through", status: "Interested", campaign: "Campaign Name", indicatorColor: "green" },
-    { email: "johnson@gmail.com", date: "Mar 7", message: "Could you tell me more about it", status: "Meeting Booked", campaign: "Campaign Name", indicatorColor: "orange" },
-    { email: "orlando@gmail.com", date: "18:30", message: "Hi, I am interested", status: "Meeting Completed", campaign: "Campaign Name", indicatorColor: "yellow" },
+    { email: "Beata@gmail.com", date: "2023-03-07", message: "I've tried alot", status: "Interested", campaign: "Campaign 1 ", indicatorColor: "blue" },
+    { email: "Sanya@gmail.com", date: "2023-08-01", message: "I've have been working on it", status: "Closed", campaign: "Campaign 2", indicatorColor: "purple" },
+    { email: "william@gmail.com", date: "2023-07-31", message: "Payment not going through", status: "Interested", campaign: "Campaign 3", indicatorColor: "green" },
+    { email: "johnson@gmail.com", date: "2023-01-03", message: "Could you tell me more about it", status: "Meeting Booked", campaign: "Campaign 4", indicatorColor: "orange" },
+    { email: "orlando@gmail.com", date: "2023-12-22", message: "Hi, can you share more details", status: "Meeting Completed", campaign: "Campaign 5", indicatorColor: "yellow" },
   ];
+
+  const sortedEmails = [...emails].sort((a, b) => {
+    if (sortOrder === 'Newest') {
+      return new Date(b.date) - new Date(a.date);
+    } else {
+      return new Date(a.date) - new Date(b.date);
+    }
+  });
 
   return (
     <div className="inbox">
@@ -19,19 +29,19 @@ function Inbox() {
       <input type="text" placeholder="Search" className="search-bar" />
       <div className="filter">
         <span>26 New Replies</span>
-        <select>
-          <option>Newest</option>
-          <option>Oldest</option>
+        <select onChange={(e) => setSortOrder(e.target.value)} value={sortOrder}>
+          <option value="Newest">Newest</option>
+          <option value="Oldest">Oldest</option>
         </select>
       </div>
       <div className="email-list">
-        {emails.map((email, index) => (
+        {sortedEmails.map((email, index) => (
           <div className="email-item" key={index}>
             <div className="email-indicator" style={{ backgroundColor: email.indicatorColor }}></div>
             <div className="email-details">
               <div className="email-header">
                 <span className="email-address">{email.email}</span>
-                <span className="email-date">{email.date}</span>
+                <span className="email-date">{new Date(email.date).toLocaleDateString()}</span>
               </div>
               <div className="email-message">{email.message}</div>
               <div className="email-footer">

@@ -13,7 +13,7 @@ function RightSideBar() {
                     </div>
                     <div className="info-row">
                         <span className="info-label">Contact No</span>
-                        <span className="info-value">+54-9062827869</span>
+                        <span className="info-value">9989288723</span>
                     </div>
                     <div className="info-row">
                         <span className="info-label">Email ID</span>
@@ -21,7 +21,7 @@ function RightSideBar() {
                     </div>
                     <div className="info-row">
                         <span className="info-label">LinkedIn</span>
-                        <span className="info-value"><a href="https://linkedin.com/in/timvadde/">linkedin.com/in/timvadde/</a></span>
+                        <span className="info-value"><a href="https://linkedin.com/in/">Redirect to LinkedIn</a></span>
                     </div>
                     <div className="info-row">
                         <span className="info-label">Company Name</span>
