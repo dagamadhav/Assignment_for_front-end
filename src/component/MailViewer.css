@@ -8,7 +8,7 @@
   }
   
   .email-container {
-    width: 500px;
+    width: 800px;
     height: 300px;
     margin-bottom: 20px;
     padding: 15px;
@@ -33,6 +33,7 @@
   }
   
   .email-content {
+    font-size: 14px;
     margin-top: 10px;
     padding-top: 10px;
     border-top: 1px solid #444;
