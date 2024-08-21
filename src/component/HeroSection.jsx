@@ -16,13 +16,7 @@ function HeroSection() {
       </div>
       <div className="main-content">
        <MailViewer />
-      {/* <div className="email-thread">
-      <EmailComponent />
-        </div> */}
-      </div>
-      <div className="footer">
-      <p>hi</p>
-      </div>
+       </div>
     </div>
   );
 }

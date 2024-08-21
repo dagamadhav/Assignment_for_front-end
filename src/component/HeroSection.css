@@ -26,9 +26,4 @@
     padding: 20px;
   }
   
-  .footer {
-    grid-area: 3 / 1 / 4 / 3;
-    padding: 10px;
-    text-align: center;
-  }
   
