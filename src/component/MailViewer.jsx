@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import './MailViewer.css';
 import MailReply from './MailReply';
@@ -11,6 +12,25 @@ const MailViewer = () => {
   useEffect(() => {
     fetchEmails();
   }, []);
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.ctrlKey && event.key === 'r') {
+        event.preventDefault(); // Prevent default browser behavior
+        openReplyWindow();
+      }
+      if (event.ctrlKey && event.key === 'd') {
+        event.preventDefault(); // Prevent default browser behavior
+        deleteFirstEmail();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [emails]);
 
   const fetchEmails = async () => {
     try {
@@ -27,6 +47,7 @@ const MailViewer = () => {
 
       const result = await response.json();
       setEmails(result.data);
+
     } catch (error) {
       console.error('Error fetching emails:', error);
     }
@@ -46,10 +67,6 @@ const MailViewer = () => {
   };
 
   const handleDeleteClick = async (emailId, threadId) => {
-    const confirmDelete = window.confirm('Are you sure you want to delete this email?');
-
-    if (!confirmDelete) return;
-
     try {
       const response = await fetch(`https://hiring.reachinbox.xyz/api/v1/onebox/messages/${threadId}`, {
         method: 'DELETE',
@@ -58,13 +75,12 @@ const MailViewer = () => {
           'Content-Type': 'application/json',
         },
       });
-
+  
       if (!response.ok) {
         throw new Error('Failed to delete email');
       }
-
+  
       setEmails(prevEmails => prevEmails.filter(email => email.id !== emailId));
-      alert('Email deleted successfully.');
     } catch (err) {
       console.error('Error deleting email:', err);
       alert('Error deleting email: ' + err.message);
@@ -84,11 +100,28 @@ const MailViewer = () => {
         throw new Error('Failed to reset emails');
       }
 
-      alert('Emails have been reset successfully.');
       fetchEmails(); 
     } catch (error) {
       console.error('Error resetting emails:', error);
       alert('Error resetting emails: ' + error.message);
+    }
+  };
+
+  const deleteFirstEmail = async () => {
+    if (emails.length > 0) {
+      const firstEmail = emails[0];
+      await handleDeleteClick(firstEmail.id, firstEmail.threadId);
+    } else {
+      alert('No emails available to delete.');
+    }
+  };
+
+  const openReplyWindow = () => {
+    if (emails.length > 0) {
+      const firstEmail = emails[0];
+      setReplyEmail(replyEmail ? null : firstEmail);
+    } else {
+      alert('No emails available to reply to.');
     }
   };
 

@@ -9,7 +9,6 @@ function Inbox() {
     { email: "Sanya@gmail.com", date: "2023-08-01", message: "I've have been working on it", status: "Closed", campaign: "Campaign 2", indicatorColor: "purple" },
     { email: "william@gmail.com", date: "2023-07-31", message: "Payment not going through", status: "Interested", campaign: "Campaign 3", indicatorColor: "green" },
     { email: "johnson@gmail.com", date: "2023-01-03", message: "Could you tell me more about it", status: "Meeting Booked", campaign: "Campaign 4", indicatorColor: "orange" },
-    { email: "orlando@gmail.com", date: "2023-12-22", message: "Hi, can you share more details", status: "Meeting Completed", campaign: "Campaign 5", indicatorColor: "yellow" },
   ];
 
   const sortedEmails = [...emails].sort((a, b) => {
