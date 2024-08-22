@@ -1,5 +1,7 @@
 import React from 'react'
 import './NavBar.css'
+import { MdOutlineDarkMode } from "react-icons/md";
+
 function NavBar() {
   return (
     <div className='navbar'>
@@ -8,10 +10,10 @@ function NavBar() {
         </div>
         <div className='logos'>
             <div className='theme-change'>
-                <p>icon</p>
+            <MdOutlineDarkMode size={30}/>
             </div>
             <div className='user'>
-                <p>user</p>
+                <h4>User</h4>
             </div>
         </div>
       

@@ -6,31 +6,31 @@ const MailViewer = () => {
   const [emails, setEmails] = useState([]);
   const [replyEmail, setReplyEmail] = useState(null);
 
+  const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsIjoiMjFidHJzZTAxNEBqYWludW5pdmVyc2l0eS5hYy5pbiIsImlkIjoxMDkzLCJmaXJzdE5hbWUiOiJNQURIQVYiLCJsYXN0TmFtZSI6IkRBR0EifSwiaWF0IjoxNzI0MTc1MDc5LCJleHAiOjE3NTU3MTEwNzl9.ShNbcbD04-9G_lZla2S9DtFvTUyHP_W8EI0m7azCK0g';
+
   useEffect(() => {
-    const fetchEmails = async () => {
-      const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsIjoiMjFidHJzZTAxNEBqYWludW5pdmVyc2l0eS5hYy5pbiIsImlkIjoxMDkzLCJmaXJzdE5hbWUiOiJNQURIQVYiLCJsYXN0TmFtZSI6IkRBR0EifSwiaWF0IjoxNzI0MTc1MDc5LCJleHAiOjE3NTU3MTEwNzl9.ShNbcbD04-9G_lZla2S9DtFvTUyHP_W8EI0m7azCK0g';
-  
-      try {
-        const response = await fetch('https://hiring.reachinbox.xyz/api/v1/onebox/list', {
-          method: 'GET',
-          headers: {
-            'Authorization': `Bearer ${token}`
-          }
-        });
-  
-        if (!response.ok) {
-          throw new Error('Failed to fetch emails');
-        }
-  
-        const result = await response.json();
-        setEmails(result.data);
-      } catch (error) {
-        console.error('Error fetching emails:', error);
-      }
-    };
-  
     fetchEmails();
   }, []);
+
+  const fetchEmails = async () => {
+    try {
+      const response = await fetch('https://hiring.reachinbox.xyz/api/v1/onebox/list', {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        }
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to fetch emails');
+      }
+
+      const result = await response.json();
+      setEmails(result.data);
+    } catch (error) {
+      console.error('Error fetching emails:', error);
+    }
+  };
 
   const formatDate = (date) => {
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
@@ -45,11 +45,9 @@ const MailViewer = () => {
     setReplyEmail(null);
   };
 
-  // Delete email function
   const handleDeleteClick = async (emailId, threadId) => {
-    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsIjoiMjFidHJzZTAxNEBqYWludW5pdmVyc2l0eS5hYy5pbiIsImlkIjoxMDkzLCJmaXJzdE5hbWUiOiJNQURIQVYiLCJsYXN0TmFtZSI6IkRBR0EifSwiaWF0IjoxNzI0MTc1MDc5LCJleHAiOjE3NTU3MTEwNzl9.ShNbcbD04-9G_lZla2S9DtFvTUyHP_W8EI0m7azCK0g';
     const confirmDelete = window.confirm('Are you sure you want to delete this email?');
-    
+
     if (!confirmDelete) return;
 
     try {
@@ -65,12 +63,32 @@ const MailViewer = () => {
         throw new Error('Failed to delete email');
       }
 
-      // Remove the deleted email from the state
       setEmails(prevEmails => prevEmails.filter(email => email.id !== emailId));
       alert('Email deleted successfully.');
     } catch (err) {
       console.error('Error deleting email:', err);
       alert('Error deleting email: ' + err.message);
+    }
+  };
+
+  const handleResetEmails = async () => {
+    try {
+      const response = await fetch('https://hiring.reachinbox.xyz/api/v1/onebox/reset', {
+        method: 'GET', 
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to reset emails');
+      }
+
+      alert('Emails have been reset successfully.');
+      fetchEmails(); 
+    } catch (error) {
+      console.error('Error resetting emails:', error);
+      alert('Error resetting emails: ' + error.message);
     }
   };
 
@@ -90,14 +108,12 @@ const MailViewer = () => {
             </div>
             <div className="email-content" dangerouslySetInnerHTML={{ __html: email.body }}></div>
             <div className='email-actions'>
-              <button 
-                onClick={() => handleReplyClick(email)}
-              >
+              <button className='button-rep' onClick={() => handleReplyClick(email)}>
                 {isSelected ? 'Close' : 'Reply'}
               </button>
               <button 
-                onClick={() => handleDeleteClick(email.id, email.threadId)}
-                className="delete-button"
+                onClick={() => handleDeleteClick(email.id, email.threadId)} 
+                className="button-rep"
               >
                 Delete
               </button>
@@ -111,6 +127,12 @@ const MailViewer = () => {
           <MailReply email={replyEmail} onClose={closeReply} />
         </div>
       )}
+
+      <div className="reset-emails-container">
+        <button className="reset-button" onClick={handleResetEmails}>
+          Reset Mails
+        </button>
+      </div>
     </div>
   );
 };
