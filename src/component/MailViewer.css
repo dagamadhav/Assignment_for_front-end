@@ -1,14 +1,14 @@
 .mail-viewer {
   font-family: Arial, sans-serif;
-    padding: 20px;
     width: 500px;
     height: 100px;
     color: #f1f1f1;
     border-radius: 8px;
+   
   }
   
   .email-container {
-    width: 800px;
+    width: 720px;
     height: 350px;
     margin-bottom: 20px;
     padding: 15px;
@@ -57,7 +57,10 @@
 
   .reset-button{
     width: 100px;
-    height: 50px;
+    align-items: center;
+    justify-content: center;
+    margin-left: 60%;
+    height: 40px;
     background-color: #3b48f8;
     color: white;
     border-radius: 5px;
