@@ -16,11 +16,11 @@ const MailViewer = () => {
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.ctrlKey && event.key === 'r') {
-        event.preventDefault(); // Prevent default browser behavior
+        event.preventDefault();
         openReplyWindow();
       }
       if (event.ctrlKey && event.key === 'd') {
-        event.preventDefault(); // Prevent default browser behavior
+        event.preventDefault();
         deleteFirstEmail();
       }
     };
